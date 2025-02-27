@@ -16,7 +16,7 @@ const slides = [
   {
     type: "image",
     src: "/images/planet.jpg",
-    title: "Technology and innovation",
+    title: "Your Home",
     description: "To build your vision of mobility",
   },
 ];

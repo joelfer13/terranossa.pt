@@ -23,8 +23,8 @@ export default function RootLayout({ children }: LayoutProps) {
     <html lang="pt">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100 text-gray-900`}>
         <Navbar />
-        <main className="pt-0 min-h-screen flex flex-col items-center justify-center p-4">
-          {children}
+        <main className="pt-0 flex-1 w-full flex flex-col items-center justify-center p-0">
+        {children}
         </main>
         <Footer />
       </body>
