@@ -13,20 +13,27 @@ const slides = [
 
 export default function Quinta() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [nextSlide, setNextSlide] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
-    }, 10000); // Muda de imagem a cada 10 segundos
+      goToNextSlide();
+    }, 10000); // Troca a cada 10 segundos
     return () => clearInterval(interval);
-  }, []);
+  }, [currentSlide]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const goToNextSlide = () => {
+    setNextSlide((prev) => (prev + 1) % slides.length);
+    setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 500); // Tempo para a transição ocorrer
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const goToPrevSlide = () => {
+    setNextSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setTimeout(() => {
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    }, 500); // Tempo para a transição ocorrer
   };
 
   return (
@@ -34,42 +41,58 @@ export default function Quinta() {
       {/* Hero Slideshow */}
       <section className="relative w-screen h-screen flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
+          {/* Imagem atual */}
           <AnimatePresence mode="wait">
-            {slides.map((slide, index) =>
-              index === currentSlide ? (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.7, ease: "easeInOut" }} // Mais rápido e sem branco
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={slide.src}
-                    alt={slide.alt}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-black opacity-40"></div>
-                </motion.div>
-              ) : null
-            )}
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={slides[currentSlide].src}
+                alt={slides[currentSlide].alt}
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-black opacity-40"></div>
+            </motion.div>
           </AnimatePresence>
+
+          {/* Próxima imagem (pré-carregada) */}
+          <motion.div
+            key={nextSlide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+            className="absolute inset-0"
+            style={{ pointerEvents: "none" }} // Evita interação com a próxima imagem
+          >
+            <Image
+              src={slides[nextSlide].src}
+              alt={slides[nextSlide].alt}
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black opacity-40"></div>
+          </motion.div>
         </div>
 
         <h1 className="relative z-10 text-5xl font-bold">A Nossa Quinta</h1>
 
         {/* Controles de navegação */}
         <button
-          onClick={prevSlide}
+          onClick={goToPrevSlide}
           className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl"
         >
           <FiChevronLeft />
         </button>
         <button
-          onClick={nextSlide}
+          onClick={goToNextSlide}
           className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl"
         >
           <FiChevronRight />
