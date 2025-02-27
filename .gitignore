@@ -40,6 +40,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.evn.local
 
-/config/firebaseServiceAccount.json
