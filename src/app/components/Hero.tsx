@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
+
 const slides = [
   {
     type: "video",
@@ -19,14 +20,6 @@ const slides = [
     title: "Your Home",
     description: "To build your vision of mobility",
   },
-];
-
-const services = [
-  { name: "Mobility Platform", icon: "🚗" },
-  { name: "Intelligent Roads", icon: "🛣️" },
-  { name: "Intelligent Operations", icon: "⚙️" },
-  { name: "Mobility Services", icon: "🚀" },
-  { name: "Advanced Air Mobility", icon: "✈️" },
 ];
 
 export default function Hero() {
@@ -100,15 +93,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-8 flex flex-wrap justify-center gap-4"
         >
-          {services.map((service, index) => (
-            <button
-              key={index}
-              className="flex items-center space-x-2 px-6 py-3 bg-white text-gray-900 rounded-lg shadow-md hover:bg-gray-200 transition"
-            >
-              <span className="text-xl">{service.icon}</span>
-              <span className="text-sm font-medium">{service.name}</span>
-            </button>
-          ))}
+          
         </motion.div>
       </div>
 
