@@ -23,3 +23,37 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+* {
+  max-width: 100vw; /* Evita que qualquer elemento ultrapasse a largura da tela */
+  box-sizing: border-box; /* Garante que padding e border não aumentam o tamanho do elemento */
+}
+
+
+html, body {
+  overflow-x: hidden; /* Impede o scroll horizontal */
+  width: 100vw; /* Garante que o conteúdo não ultrapassa a largura da tela */
+}
+
+
+/* 🔥 Esconder completamente o cursor padrão */
+* {
+  cursor: none !important;
+}
+
+/* 🔥 Cursor Customizado */
+.custom-cursor {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border-radius: 300%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transition: transform linear;
+}
+
+/* 🔥 Cursor ao passar sobre elementos interativos */
+.custom-cursor.hover {
+  background-color: #38a169; /* Verde ao passar sobre elementos clicáveis */
+}

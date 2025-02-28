@@ -2,11 +2,23 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { Poppins, League_Script } from "next/font/google";
+
+const poppins = Poppins({
+  weight: "700",
+  subsets: ["latin"],
+});
+
+const leagueScript = League_Script({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export default function Navbar() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [visible, setVisible] = useState(true);
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isAccommodationOpen, setIsAccommodationOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("PT");
 
   const languages = [
@@ -19,9 +31,9 @@ export default function Navbar() {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setVisible(false); // Esconde ao descer
+        setVisible(false);
       } else if (currentScrollY < lastScrollY) {
-        setVisible(true); // Mostra ao subir
+        setVisible(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -36,66 +48,76 @@ export default function Navbar() {
       className={`fixed top-0 left-0 w-full z-50 transition-transform duration-500 ease-in-out ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
-      style={{ backgroundColor: "transparent" }} // Fundo transparente
+      style={{ backgroundColor: "transparent" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
+          {/* 🔥 Logo e Nome */}
           <div className="flex-shrink-0">
-            <Link href="/">
-              <span className="text-2xl font-bold text-white">Terra Nossa</span>
+            <Link href="/" className="flex items-center space-x-2">
+              <span className={`text-2xl font-bold text-white leading-none ${poppins.className}`}>
+                Terra Nossa
+              </span>
+              <span className={`text-3xl text-white relative top-[2px] leading-none ${leagueScript.className}`}>
+                TN
+              </span>
             </Link>
           </div>
 
-          {/* Links de navegação */}
-          <div className="hidden md:flex space-x-6">
-            <Link
-              href="/about"
-              className="text-lg text-white hover:text-gray-200 transition-colors"
+          {/* 🔥 Links de navegação */}
+          <div className="hidden md:flex space-x-6 items-center">
+            {/* 🔽 Dropdown Alojamentos */}
+            <div
+              className="relative"
+              onMouseEnter={() => setIsAccommodationOpen(true)}
+              onMouseLeave={() => setIsAccommodationOpen(false)}
             >
-              Sobre Nós
-            </Link>
-            <Link
-              href="/services"
-              className="text-lg text-white hover:text-gray-200 transition-colors"
-            >
-              Serviços
-            </Link>
-            <Link
-              href="/contact"
-              className="text-lg text-white hover:text-gray-200 transition-colors"
-            >
-              Contacto
-            </Link>
-
-            {/* Dropdown Alojamentos */}
-            <div className="relative group">
-              <button className="text-lg text-white hover:text-gray-200 transition-colors">
-                Alojamentos ▼
+              <button className="text-lg text-white hover:text-gray-200 transition-colors flex items-center">
+                Alojamentos
+                <span
+                  className={`ml-2 w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-white transform transition-transform duration-200 ${
+                    isAccommodationOpen ? "rotate-0" : "rotate-180"
+                  }`}
+                ></span>
               </button>
-              <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
-                <Link
-                  href="/quinta"
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+
+              {isAccommodationOpen && (
+                <div
+                  className="absolute left-0 mt-2 w-36 bg-[#ccccbc] shadow-lg rounded-none transition-opacity duration-300"
+                  onMouseEnter={() => setIsAccommodationOpen(true)}
+                  onMouseLeave={() => setIsAccommodationOpen(false)}
                 >
-                  Quinta
-                </Link>
-              </div>
+                  <Link
+                    href="/quinta"
+                    className="block px-4 py-2 text-gray-900 hover:bg-gray-300 transition-colors"
+                  >
+                    Quinta
+                  </Link>
+                </div>
+              )}
             </div>
 
-            {/* 🔥 Dropdown de Idiomas */}
+            {/* 🔽 Dropdown de Idiomas */}
             <div
-              className="relative group"
+              className="relative"
               onMouseEnter={() => setIsLangOpen(true)}
               onMouseLeave={() => setIsLangOpen(false)}
             >
-              <button className="text-white text-sm flex items-center space-x-1">
+              <button className="text-white text-sm flex items-center space-x-1 leading-none">
                 <span>{selectedLanguage}</span>
-                <span className="text-xs">{isLangOpen ? "▲" : "▼"}</span>
+                <span
+                  className={`w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-white transform transition-transform duration-200 ${
+                    isLangOpen ? "rotate-0" : "rotate-180"
+                  }`}
+                ></span>
               </button>
 
               {isLangOpen && (
-                <div className="absolute right-0 mt-2 w-28 bg-white shadow-md rounded-md">
+                <div
+                  className="absolute right-0 mt-2 w-28 bg-[#ccccbc] shadow-lg rounded-none transition-opacity duration-300"
+                  onMouseEnter={() => setIsLangOpen(true)}
+                  onMouseLeave={() => setIsLangOpen(false)}
+                >
                   {languages
                     .sort((a, b) =>
                       a.code === selectedLanguage ? -1 : b.code === selectedLanguage ? 1 : 0
@@ -103,8 +125,8 @@ export default function Navbar() {
                     .map((lang) => (
                       <button
                         key={lang.code}
-                        className={`block w-full px-4 py-2 text-sm text-gray-800 hover:text-red-600 ${
-                          selectedLanguage === lang.code ? "text-red-600 font-semibold" : ""
+                        className={`block w-full px-4 py-2 text-sm hover:bg-gray-300 transition-colors ${
+                          selectedLanguage === lang.code ? "text-[#647054] font-semibold" : "text-gray-900"
                         }`}
                         onClick={() => {
                           setSelectedLanguage(lang.code);

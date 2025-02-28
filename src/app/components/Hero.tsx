@@ -4,18 +4,25 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { Geist, Poppins } from "next/font/google"; // 🔥 Importa a fonte Poppins
+
+const poppins = Poppins({ weight: "700", subsets: ["latin"] });
 
 const slides = [
   {
     type: "video",
-    src: "/videos/estrelas.mp4",
-    title: "Bem-vindo à Terra Nossa",
+    src: "/videos/carronatureza.mp4",
+    title: (
+      <>
+        Bem-vindo à <span className={`${poppins.className}`}>Terra Nossa</span>
+      </>
+    ),
     description:
       "Uma experiência inesquecível num espaço onde a natureza e o bem-estar andam de mãos dadas.",
   },
   {
-    type: "image",
-    src: "/images/planet.jpg",
+    type: "video",
+    src: "/videos/estrelas.mp4",
     title: "Your Home",
     description: "To build your vision of mobility",
   },
@@ -77,12 +84,8 @@ export default function Hero() {
             exit={{ opacity: 0, y: 30 }}
             transition={{ duration: 1.2 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold">
-              {slides[currentSlide].title}
-            </h1>
-            <p className="mt-6 text-base md:text-lg opacity-90">
-              {slides[currentSlide].description}
-            </p>
+            <h1 className="text-4xl md:text-6xl font-bold">{slides[currentSlide].title}</h1>
+            <p className="mt-6 text-base md:text-lg opacity-90">{slides[currentSlide].description}</p>
           </motion.div>
         </AnimatePresence>
       </div>
