@@ -1,62 +1,85 @@
 import React from "react";
-import { FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaLinkedin, FaYoutube, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import Image from "next/image"; // Importação da Logo
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white text-gray-700 py-10">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Logo e Menu Principal */}
+    <footer className="w-full bg-[#e5d5c5] text-gray-900">
+      {/* 🔥 Seção superior com logotipos e sombra para separação */}
+<div className="bg-white shadow">
+  <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-12 py-6">
+    <Image src="/images/portugaleue.png" alt="Portugal 2020" width={400} height={80} />
+  </div>
+</div>
+
+
+      {/* 🔥 Conteúdo principal do Footer */}
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 pt-10 pb-16">
+        {/* Logo e informações */}
         <div>
-          <h2 className="text-2xl font-bold text-green-600">TN</h2>
+          <Image src="/images/Logo.jpg" alt="Logo da empresa" width={60} height={60} />
+          <p className="mt-4 text-sm">
+            Rua Padre José Jacinto Botelho, 5 <br />
+            9675-061 Furnas, São Miguel, Portugal
+          </p>
+          <p className="mt-2 flex items-center">
+            <FaPhoneAlt className="mr-2 text-red-600" />
+            +351 296 549 090
+          </p>
+          <p className="mt-2 flex items-center">
+            <FaEnvelope className="mr-2 text-red-600" />
+            Contacte-nos
+          </p>
+        </div>
+
+        {/* Links rápidos */}
+        <div>
+          <h3 className="font-semibold text-gray-900 uppercase">Terra Nossa</h3>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><a href="#" className="hover:underline">Open Innovation</a></li>
-            <li><a href="#" className="hover:underline">Our Team</a></li>
-            <li><a href="#" className="hover:underline">Venture Building</a></li>
-            <li><a href="#" className="hover:underline">Work at TerraNossa</a></li>
+            <li><a href="#" className="hover:underline">A Nossa História</a></li>
+            <li><a href="#" className="hover:underline">Quartos</a></li>
+            <li><a href="#" className="hover:underline">Sustentabilidade</a></li>
+            <li><a href="#" className="hover:underline">Restaurante</a></li>
+            <li><a href="#" className="hover:underline">Eventos</a></li>
           </ul>
         </div>
 
-        {/* Soluções */}
+        {/* Sitemap */}
         <div>
-          <h3 className="font-semibold text-gray-900">OUR SOLUTIONS</h3>
+          <h3 className="font-semibold text-gray-900 uppercase">Sitemap</h3>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><a href="#" className="hover:underline">Mobility Platform</a></li>
-            <li><a href="#" className="hover:underline">Intelligent Roads</a></li>
-            <li><a href="#" className="hover:underline">Intelligent Operations</a></li>
-            <li><a href="#" className="hover:underline">Mobility Services</a></li>
-            <li><a href="#" className="hover:underline">Advance Air Mobility</a></li>
+            <li><a href="#" className="hover:underline">Galeria</a></li>
+            <li><a href="#" className="hover:underline">Localização</a></li>
+            <li><a href="#" className="hover:underline">Segurança</a></li>
+            <li><a href="#" className="hover:underline">Sustentabilidade</a></li>
+            <li><a href="#" className="hover:underline">Carreiras</a></li>
           </ul>
         </div>
 
-        {/* Outros Interesses */}
-        <div>
-          <h3 className="font-semibold text-gray-900">YOU MAY ALSO BE INTERESTED IN</h3>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li><a href="#" className="hover:underline">Geomic by TerraNossa</a></li>
-            <li><a href="#" className="hover:underline">TerraNossa Tolling Back Office</a></li>
-            <li><a href="#" className="hover:underline">Slora by TerraNossa</a></li>
-          </ul>
-        </div>
-
-        {/* Redes Sociais e Contacto */}
+        {/* Newsletter e Redes Sociais */}
         <div className="flex flex-col items-start">
-          <h3 className="font-semibold text-gray-900">FOLLOW US AT</h3>
-          <div className="flex space-x-4 mt-4">
-            <a href="#" className="text-blue-600 text-xl hover:text-blue-800"><FaLinkedin /></a>
-            <a href="#" className="text-red-600 text-xl hover:text-red-800"><FaYoutube /></a>
-          </div>
-          <button className="mt-6 px-6 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-700 transition">
-            CONTACT
+          <h3 className="font-semibold text-gray-900 uppercase">Newsletter</h3>
+          <button className="mt-4 px-6 py-2 bg-red-700 text-white rounded-md hover:bg-red-900 transition">
+            Subscreva
           </button>
+          <div className="flex space-x-4 mt-6">
+            <a href="#" className="text-blue-600 text-xl hover:text-blue-800">
+              <FaLinkedin />
+            </a>
+            <a href="#" className="text-red-600 text-xl hover:text-red-800">
+              <FaYoutube />
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Links de Políticas */}
-      <div className="mt-10 border-t border-gray-200 pt-6 text-center text-xs text-gray-500">
-        <a href="#" className="hover:underline mx-2">Cookies Policy</a> |
-        <a href="#" className="hover:underline mx-2">Privacy Policy</a> |
-        <a href="#" className="hover:underline mx-2">Legal Notice</a> |
-        <a href="#" className="hover:underline mx-2">Code of Conduct</a>
+      {/* 🔥 Barra inferior separada */}
+      <div className="bg-[#f8f1e7] text-center text-sm py-4">
+        <a href="#" className="hover:underline mx-2">Política de Cookies</a> |
+        <a href="#" className="hover:underline mx-2">Privacidade</a> |
+        <a href="#" className="hover:underline mx-2">Termos e Condições</a> |
+        <a href="#" className="hover:underline mx-2">Código de Conduta</a>
+        <p className="mt-2 text-xs text-gray-700">© 2025 Terra Nossa - Todos os direitos reservados</p>
       </div>
     </footer>
   );

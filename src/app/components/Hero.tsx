@@ -5,14 +5,13 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-
 const slides = [
   {
     type: "video",
-    src: "/videos/video.mp4",
-    title: "Route 25",
+    src: "/videos/estrelas.mp4",
+    title: "Bem-vindo à Terra Nossa",
     description:
-      "Autonomous, Intelligent, Interoperable and Inclusive Mobility Agenda",
+      "Uma experiência inesquecível num espaço onde a natureza e o bem-estar andam de mãos dadas.",
   },
   {
     type: "image",
@@ -81,20 +80,11 @@ export default function Hero() {
             <h1 className="text-4xl md:text-6xl font-bold">
               {slides[currentSlide].title}
             </h1>
-            <p className="mt-4 text-lg md:text-xl">
+            <p className="mt-6 text-base md:text-lg opacity-90">
               {slides[currentSlide].description}
             </p>
           </motion.div>
         </AnimatePresence>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-8 flex flex-wrap justify-center gap-4"
-        >
-          
-        </motion.div>
       </div>
 
       {/* Controles de navegação */}
