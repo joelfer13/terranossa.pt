@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Poppins, League_Script } from "next/font/google";
 import { useState, useRef, useEffect } from "react";
-import { useTranslation } from 'next-i18next';
 
 const poppins = Poppins({
   weight: "700",
@@ -16,10 +15,9 @@ const leagueScript = League_Script({
 });
 
 export default function Navbar() {
-  const { t, i18n } = useTranslation('common');
   const [isAccommodationOpen, setIsAccommodationOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language === 'en' ? 'English' : 'Português');
+  const [selectedLanguage, setSelectedLanguage] = useState("Português");
   const accommodationRef = useRef<HTMLDivElement>(null);
   const languageRef = useRef<HTMLDivElement>(null);
 
@@ -44,7 +42,6 @@ export default function Navbar() {
   };
 
   const handleLanguageClick = (language: string) => {
-    i18n.changeLanguage(language === 'Português' ? 'pt' : 'en');
     setSelectedLanguage(language);
     setIsLanguageOpen(false);
   };
@@ -70,7 +67,7 @@ export default function Navbar() {
                 onClick={() => setIsAccommodationOpen(!isAccommodationOpen)}
                 className={`text-lg text-white hover:text-gray-200 transition-colors flex items-center ${poppins.className}`}
               >
-                {t('navbar.accommodations')} {/* Texto traduzido */}
+                Alojamentos
                 <span className="ml-2 w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-white"></span>
               </button>
 
@@ -81,7 +78,7 @@ export default function Navbar() {
                     onClick={handleAccommodationClick}
                     className="block px-4 py-2 text-gray-900 hover:bg-gray-300 transition-colors"
                   >
-                    {t('navbar.quinta')} {/* Texto traduzido */}
+                    Quinta
                   </Link>
                 </div>
               )}
@@ -104,7 +101,7 @@ export default function Navbar() {
                       selectedLanguage === "Português" ? "text-[#647054] font-semibold" : "text-gray-900"
                     }`}
                   >
-                    {t('navbar.portuguese')} {/* Texto traduzido */}
+                    Português
                   </button>
                   <button
                     onClick={() => handleLanguageClick("English")}
@@ -112,7 +109,7 @@ export default function Navbar() {
                       selectedLanguage === "English" ? "text-[#647054] font-semibold" : "text-gray-900"
                     }`}
                   >
-                    {t('navbar.english')} {/* Texto traduzido */}
+                    English
                   </button>
                 </div>
               )}

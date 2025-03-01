@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^14.2.15",
+    "next/font": "^14.2.15",
     "@radix-ui/react-progress": "^1.1.2",
     "firebase": "^11.3.1",
     "framer-motion": "^12.4.7",
