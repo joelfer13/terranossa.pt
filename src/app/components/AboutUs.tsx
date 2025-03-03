@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AboutUs() {
   return (
-    <section className="bg-[#ccccbc] py-16">
+    <section id="about" className="bg-[#ccccbc] py-16">
   <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center">
     {/* 📷 Imagem à esquerda */}
     <div className="w-full md:w-1/3">
