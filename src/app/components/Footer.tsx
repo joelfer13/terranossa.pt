@@ -1,6 +1,7 @@
-import React from "react";
+import React from "react"; 
 import { FaLinkedin, FaYoutube, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -34,7 +35,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center">
             <FaEnvelope className="mr-2 text-black-600" />
-            <span>Contacte-nos</span>
+            <Link href="/contactos" className="text-black-600 hover:underline">Contacte-nos</Link>
           </div>
         </div>
       </div>

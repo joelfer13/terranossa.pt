@@ -24,9 +24,9 @@ export default function Quinta() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <main className="min-h-screen bg-[#FAF7F2] text-gray-900">
-      {/* Hero Slideshow */}
-      <section className="relative w-screen h-[70vh] flex flex-col items-center justify-center text-center text-white overflow-hidden">
+    <main className="min-h-screen bg-[#FAF7F2] text-gray-900 overflow-hidden">
+      {/* 🔥 Hero Slideshow */}
+      <section className="relative w-full h-[70vh] flex flex-col items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
           <AnimatePresence mode="wait">
             <motion.div
@@ -48,7 +48,7 @@ export default function Quinta() {
             </motion.div>
           </AnimatePresence>
         </div>
-        {/* Texto fixo da Quinta ajustado */}
+        {/* 🔥 Texto fixo da Quinta ajustado */}
         <div className="absolute bottom-16 w-full px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ export default function Quinta() {
         </div>
       </section>
 
-      {/* Nova Secção com Descrição e Carrossel */}
+      {/* 🔥 Nova Secção com Descrição e Carrossel */}
       <section className="max-w-6xl mx-auto px-10 py-24 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
         <FadeInOnScroll>
           <div>
@@ -83,7 +83,7 @@ export default function Quinta() {
         </div>
       </section>
 
-      {/* Botão de Reservar */}
+      {/* 🔥 Botão de Reservar */}
       <FadeInOnScroll>
         <section className="text-center py-16">
           <a
@@ -97,7 +97,7 @@ export default function Quinta() {
         </section>
       </FadeInOnScroll>
 
-      {/* Localização */}
+      {/* 🔥 Localização */}
       <FadeInOnScroll>
         <section className="w-full bg-gray-100 py-5">
           <h2 className={`text-3xl font-semibold text-center mb-6 text-[#4b6449] ${poppins.className}`}>
@@ -118,7 +118,7 @@ export default function Quinta() {
         </section>
       </FadeInOnScroll>
 
-      {/* Botão flutuante */}
+      {/* 🔥 Botão flutuante */}
       <FloatingButton />
     </main>
   );

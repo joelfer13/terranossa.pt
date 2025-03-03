@@ -36,7 +36,7 @@ const Carousel = () => {
             <SwiperSlide key={index}>
               <img
                 src={src}
-                alt={`Alojamento ${index + 1}`}
+                alt={`Quinta ${index + 1}`}
                 className="w-full h-full object-cover rounded-2xl"
               />
             </SwiperSlide>

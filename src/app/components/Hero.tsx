@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { Geist, Poppins } from "next/font/google"; // 🔥 Importa a fonte Poppins
+import { Poppins } from "next/font/google"; // 🔥 Importa a fonte Poppins
 
 const poppins = Poppins({ weight: "700", subsets: ["latin"] });
 
@@ -23,8 +23,8 @@ const slides = [
   {
     type: "video",
     src: "/videos/estrelas.mp4",
-    title: "Your Home",
-    description: "To build your vision of mobility",
+    title: "Refúgio Perfeito",
+    description: "Na Terra Nossa, celebramos a riqueza da Nossa Terra",
   },
 ];
 
@@ -40,9 +40,9 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-screen h-screen flex flex-col items-center justify-center text-center text-white overflow-hidden">
-      {/* Fundo dinâmico com fade */}
-      <div className="absolute inset-0 w-full h-full">
+    <section className="relative w-full h-screen flex flex-col items-center justify-center text-center text-white overflow-hidden">
+      {/* 🔥 Fundo dinâmico com fade */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -58,7 +58,7 @@ export default function Hero() {
                 autoPlay
                 loop
                 muted
-                className="object-cover w-full h-full"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             ) : (
               <Image
@@ -74,7 +74,7 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      {/* Conteúdo central com fade */}
+      {/* 🔥 Conteúdo central com fade */}
       <div className="relative z-10 max-w-4xl px-6">
         <AnimatePresence mode="wait">
           <motion.div
@@ -90,7 +90,7 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      {/* Controles de navegação */}
+      {/* 🔥 Controles de navegação */}
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl"
