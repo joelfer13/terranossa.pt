@@ -58,7 +58,10 @@ export default function Hero() {
                 autoPlay
                 loop
                 muted
-                className="absolute inset-0 w-full h-full object-cover"
+                playsInline // 🔥 Impede tela cheia no iPhone
+                controls={false} // 🔥 Remove controles de vídeo
+                disablePictureInPicture // 🔥 Bloqueia PIP (modo flutuante)
+                className="absolute inset-0 w-full h-full object-cover pointer-events-none" // 🔥 Impede interações
               />
             ) : (
               <Image
