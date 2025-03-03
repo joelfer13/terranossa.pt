@@ -28,7 +28,7 @@ export default function FloatingButton() {
       className="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center animate-bounce transition z-[9999]"
     >
       <svg
-        className="w-8 h-8 transform rotate-180"
+        className="w-6 h-6 transform rotate-180"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

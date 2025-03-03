@@ -41,10 +41,6 @@ export default function Footer() {
 
       {/* 🔥 Barra inferior separada */}
       <div className="bg-[#647054] text-center text-sm py-4">
-        <a href="#" className="hover:underline mx-2">Política de Cookies</a> |
-        <a href="#" className="hover:underline mx-2">Privacidade</a> |
-        <a href="#" className="hover:underline mx-2">Termos e Condições</a> |
-        <a href="#" className="hover:underline mx-2">Código de Conduta</a>
         <p className="mt-2 text-xs text-gray-700">© 2025 Terra Nossa - Todos os direitos reservados</p>
       </div>
     </footer>
