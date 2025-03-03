@@ -74,7 +74,7 @@ export default function Quinta() {
             </h2>
             <p className={`text-lg text-gray-700 leading-relaxed mt-4 ${poppins.className}`}>
               Situada num cenário idílico, a nossa quinta oferece um retiro perfeito para quem busca tranquilidade e conexão com a natureza.
-              Com paisagens deslumbrantes e um ambiente acolhedor, garantimos uma experiência única para cada visitante.
+              Com um ambiente acolhedor, garantimos uma experiência única para cada visitante.
             </p>
           </div>
         </FadeInOnScroll>
