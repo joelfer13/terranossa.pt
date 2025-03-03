@@ -1,25 +1,44 @@
 "use client";
 
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import React from "react"; // Importe o React para usar React.ReactNode
 
 interface FadeInOnScrollProps {
-  children: React.ReactNode; // Defina o tipo da prop children
+  children: React.ReactNode;
 }
 
 export default function FadeInOnScroll({ children }: FadeInOnScrollProps) {
-  const [ref, inView] = useInView({
-    triggerOnce: true, // A animação só ocorre uma vez
-    threshold: 0.1, // Define quanto do elemento precisa estar visível para disparar a animação
-  });
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); // Para de observar após a animação
+        }
+      },
+      { threshold: 0.1 } // Ajuste o threshold conforme necessário
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }} // Inicia invisível e ligeiramente deslocado para baixo
-      animate={inView ? { opacity: 1, y: 0 } : {}} // Anima para visível e sem deslocamento
-      transition={{ duration: 0.6, ease: "easeOut" }} // Duração e suavização da animação
+      initial={{ opacity: 0, y: 20 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {children}
     </motion.div>

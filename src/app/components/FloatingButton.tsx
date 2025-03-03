@@ -25,7 +25,7 @@ export default function FloatingButton() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center animate-bounce transition"
+      className="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center animate-bounce transition z-[9999]"
     >
       <svg
         className="w-8 h-8 transform rotate-180"

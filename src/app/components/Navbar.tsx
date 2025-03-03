@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Poppins, League_Script } from "next/font/google";
 import { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 const poppins = Poppins({
   weight: "700",
@@ -18,6 +19,8 @@ export default function Navbar() {
   const [isAccommodationOpen, setIsAccommodationOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("Português");
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const accommodationRef = useRef<HTMLDivElement>(null);
   const languageRef = useRef<HTMLDivElement>(null);
 
@@ -37,6 +40,27 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past 100px
+        setIsNavbarVisible(false);
+      } else {
+        // Scrolling up or near the top
+        setIsNavbarVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   const handleAccommodationClick = () => {
     setIsAccommodationOpen(false);
   };
@@ -47,7 +71,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 transition-transform duration-500 ease-in-out bg-transparent">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-transform duration-500 ease-in-out bg-transparent ${
+        isNavbarVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0">
