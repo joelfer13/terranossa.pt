@@ -21,7 +21,7 @@ const slides = [
 ];
 
 export default function Quinta() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide] = useState(0);
 
   return (
     <main className="min-h-screen bg-[#FAF7F2] text-gray-900 overflow-hidden">

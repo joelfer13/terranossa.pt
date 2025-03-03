@@ -1,7 +1,7 @@
 "use client";
 
 import { HiX } from "react-icons/hi";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
@@ -45,21 +45,6 @@ export default function Overlay({ isOpen, onClose }: OverlayProps) {
     };
   }, [isOpen]);
   
-  
-
-  
-
-  const handleScrollToAbout = () => {
-    onClose();
-    setTimeout(() => {
-      if (typeof window !== "undefined") {
-        const aboutSection = document.getElementById("about");
-        if (aboutSection) {
-          aboutSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-    }, 200); // Small delay to ensure the animation
-  };
 
   return (
     <AnimatePresence>

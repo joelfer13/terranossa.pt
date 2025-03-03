@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { useState,useEffect } from "react";
 import { motion } from "framer-motion";
 import { Poppins } from "next/font/google";
 import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
@@ -12,12 +12,12 @@ const poppins = Poppins({
 });
 
 export default function Contactos() {
-  const [formData, setFormData] = useState({
+  const [,] = useState({
     name: "",
     email: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [,] = useState(false);
 
   useEffect(() => {
     document.documentElement.style.overflow = "auto";
@@ -25,17 +25,6 @@ export default function Contactos() {
     document.body.style.height = "auto";
     document.documentElement.style.height = "auto";
   }, []);
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-  };
 
   return (
     <main className="relative w-full min-h-screen flex flex-col items-center justify-start text-white">

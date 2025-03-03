@@ -9,6 +9,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import FadeInOnScroll from "@/app/components/FadeInOnScroll"; // Importe o FadeInOnScroll
+import Image from 'next/image';
 
 const images = [
   "/images/quinta-1.jpg",
@@ -34,10 +35,14 @@ const Carousel = () => {
         >
           {images.map((src, index) => (
             <SwiperSlide key={index}>
-              <img
+              <Image
                 src={src}
-                alt={`Quinta ${index + 1}`}
+                alt={`Alojamento ${index + 1}`}
+                width={800} // Ajusta conforme necessário
+                height={500} // Ajusta conforme necessário
                 className="w-full h-full object-cover rounded-2xl"
+                priority={index === 0} // Para carregar a primeira imagem mais rápido
+                unoptimized // Se necessário para imagens externas
               />
             </SwiperSlide>
           ))}

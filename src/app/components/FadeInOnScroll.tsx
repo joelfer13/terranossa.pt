@@ -9,9 +9,12 @@ interface FadeInOnScrollProps {
 
 export default function FadeInOnScroll({ children }: FadeInOnScrollProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    const target = ref.current;
+    if (!target) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -22,14 +25,10 @@ export default function FadeInOnScroll({ children }: FadeInOnScrollProps) {
       { threshold: 0.1 } // Ajuste o threshold conforme necessário
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(target);
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      if (target) observer.unobserve(target);
     };
   }, []);
 

@@ -1,13 +1,20 @@
 "use client";
 
-
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Hero from "./components/Hero";
 import FloatingButton from "@/app/components/FloatingButton";
 import AboutUs from "@/app/components/AboutUs";
 
 export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
+  );
+}
+
+function HomeContent() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -29,7 +36,9 @@ export default function Home() {
     const animateScroll = (currentTime: number) => {
       const elapsedTime = currentTime - startTime;
       const progress = Math.min(elapsedTime / duration, 1);
-      const easeInOutQuad = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+      const easeInOutQuad = progress < 0.5 
+        ? 2 * progress * progress 
+        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
       window.scrollTo(0, startY + (targetY - startY) * easeInOutQuad);
 
