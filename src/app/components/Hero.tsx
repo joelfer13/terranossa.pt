@@ -58,10 +58,10 @@ export default function Hero() {
                 autoPlay
                 loop
                 muted
-                playsInline // 🔥 Impede tela cheia no iPhone
-                controls={false} // 🔥 Remove controles de vídeo
-                disablePictureInPicture // 🔥 Bloqueia PIP (modo flutuante)
-                className="absolute inset-0 w-full h-full object-cover pointer-events-none" // 🔥 Impede interações
+                playsInline
+                controls={false}
+                disablePictureInPicture
+                className="absolute inset-0 w-full h-full object-cover pointer-events-none" // 🔥 Apenas o vídeo fica sem interação!
               />
             ) : (
               <Image
@@ -93,16 +93,16 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      {/* 🔥 Controles de navegação */}
+      {/* 🔥 Controles de navegação (continuam funcionando!) */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl z-20"
       >
         <FiChevronLeft />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl z-20"
       >
         <FiChevronRight />
       </button>

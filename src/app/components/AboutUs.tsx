@@ -13,7 +13,7 @@ export default function AboutUs() {
         alt="Nossa Família"
         width={400}
         height={300}
-        className="rounded-lg shadow-lg object-cover"
+        className="w-full h-auto object-contain rounded-lg shadow-lg object-cover"
       />
     </div>
 
