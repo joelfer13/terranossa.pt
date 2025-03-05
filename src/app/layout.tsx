@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Terra Nossa",
   description: "Descrição do seu site",
+  icons: {
+    icon: "images/logotransparente.png", // Caminho do favicon na pasta public
+  },
 };
 
 export default function RootLayout({

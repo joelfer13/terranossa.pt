@@ -15,8 +15,8 @@ const poppins = Poppins({
 });
 
 const slides = [
-  { src: "/images/quinta-hero.jpg", alt: "Vista da Quinta 1" },
-  { src: "/images/quinta-hero2.jpg", alt: "Vista da Quinta 2" },
+  { src: "/images/quinta-2.jpeg", alt: "Vista da Quinta 1" },
+  { src: "/images/quinta-hero.jpg", alt: "Vista da Quinta 2" },
   { src: "/images/quinta-hero3.jpg", alt: "Vista da Quinta 3" },
 ];
 

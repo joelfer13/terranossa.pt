@@ -13,8 +13,17 @@ import Image from 'next/image';
 
 const images = [
   "/images/quinta-1.jpg",
-  "/images/quinta-2.jpg",
+  "/images/quinta-2.jpeg",
   "/images/quinta-3.jpg",
+  "/images/quinta-4.jpeg",
+  "/images/quinta-5.jpeg",
+  "/images/quinta-6.jpeg",
+  "/images/quinta-7.jpeg",
+  "/images/quinta-10.jpeg",
+  "/images/quinta-11.jpeg",
+  "/images/quinta-12.jpeg",
+  "/images/quinta-13.jpeg",
+  "/images/quinta-14.jpeg"
 ];
 
 const Carousel = () => {
