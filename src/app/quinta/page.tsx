@@ -1,25 +1,87 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import FloatingButton from "@/app/components/FloatingButton";
 import FadeInOnScroll from "@/app/components/FadeInOnScroll";
 import { Poppins } from "next/font/google";
 import Carousel from "@/app/components/Carousel";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 // Configuração da fonte Poppins
 const poppins = Poppins({
-  weight: ["400", "600"], // Pesos da fonte
-  subsets: ["latin"], // Subconjunto de caracteres
+  weight: ["400", "600"],
+  subsets: ["latin"],
 });
 
 const slides = [
   { src: "/images/quinta-2.jpeg", alt: "Vista da Quinta 1" },
   { src: "/images/quinta-hero.jpg", alt: "Vista da Quinta 2" },
   { src: "/images/quinta-hero3.jpg", alt: "Vista da Quinta 3" },
+];  
+
+
+// **Galeria de Apartamentos e Espaços Comuns**
+interface Space {
+  title: string;
+  desc: string;
+  images: string[];
+}
+
+const apartamentos: Space[] = [
+  {
+    title: "Apart. Lua",
+    desc: "Ambiente acolhedor e luminoso para relaxar.",
+    images: ["/images/apart-lua.jpeg", "/images/apart-lua1.jpeg"],
+  },
+  {
+    title: "Apart. Vénus",
+    desc: "Elegância e conforto com um toque rústico.",
+    images: ["/images/apart-venus.jpeg","/images/apart-venus1.jpeg"],
+  },
+  {
+    title: "Apart. Sol",
+    desc: "Espaço amplo com vista para o jardim.",
+    images: [
+      "/images/apart-sol1.jpeg",
+      "/images/apart-sol2.jpeg",
+      "/images/apart-sol3.jpeg",
+      "/images/apart-sol4.jpeg",
+    ],
+  },
 ];
 
+const espacosComuns: Space[] = [
+  {
+    title: "Sala",
+    desc: "Sala espaçosa para momentos em família e amigos.",
+    images: ["/images/sala.jpeg", "/images/sala1.jpeg"],
+  },
+  {
+    title: "Cozinha",
+    desc: "Cozinha totalmente equipada para as suas refeições.",
+    images: [
+      "/images/cozinha.jpeg",
+      "/images/cozinha1.jpeg",
+      "/images/cozinha2.jpeg",
+    ],
+  },
+  {
+    title: "Exterior",
+    desc: "Vistas deslumbrantes da quinta e seus arredores.",
+    images: [
+      "/images/quinta-1.jpg",
+      "/images/quinta-2.jpeg",
+      "/images/quinta-3.jpg",
+      "/images/quinta-4.jpeg",
+      "/images/quinta-5.jpeg",
+      "/images/quinta-6.jpeg",
+      "/images/quinta-7.jpeg",
+      "/images/quinta-10.jpeg",
+    ],
+  },
+];
 export default function Quinta() {
   const [currentSlide] = useState(0);
 
@@ -48,7 +110,7 @@ export default function Quinta() {
             </motion.div>
           </AnimatePresence>
         </div>
-        {/* 🔥 Texto fixo da Quinta ajustado */}
+        {/* 🔥 Texto fixo da Quinta */}
         <div className="absolute bottom-16 w-full px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -65,7 +127,7 @@ export default function Quinta() {
         </div>
       </section>
 
-      {/* 🔥 Nova Secção com Descrição e Carrossel */}
+      {/* 🔥 Secção Terra Nossa */}
       <section className="max-w-6xl mx-auto px-10 py-24 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
         <FadeInOnScroll>
           <div>
@@ -82,6 +144,54 @@ export default function Quinta() {
           <Carousel />
         </div>
       </section>
+
+       {/* 🔥 Secção Interior da Quinta */}
+<section className="w-full bg-white shadow-lg py-24">
+  <div className="max-w-6xl mx-auto px-10">
+    <FadeInOnScroll>
+      <div className="text-center">
+        <h2 className={`text-4xl font-semibold text-[#4b6449] mb-6 border-b-4 border-[#4b6449] inline-block pb-2 ${poppins.className}`}>
+          Interior da Quinta
+        </h2>
+        <p className={`text-lg text-gray-700 mt-4 ${poppins.className}`}>
+          Descubra os nossos apartamentos cuidadosamente decorados, onde o conforto e a elegância se encontram. Cada espaço foi pensado para proporcionar uma estadia relaxante e memorável, com detalhes que refletem o charme rústico e a modernidade.
+        </p>
+      </div>
+    </FadeInOnScroll>
+
+    <FadeInOnScroll>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        {apartamentos.map((item, index) => (
+          <Slideshow key={index} title={item.title} desc={item.desc} images={item.images} />
+        ))}
+      </div>
+    </FadeInOnScroll>
+  </div>
+</section>
+
+      {/* 🔥 Secção Espaços Comuns */}
+<section className="w-full bg-white shadow-lg py-16">
+  <div className="max-w-6xl mx-auto px-10">
+    <FadeInOnScroll>
+      <div className="text-center">
+        <h2 className={`text-4xl font-semibold text-[#4b6449] mb-6 border-b-4 border-[#4b6449] inline-block pb-2 ${poppins.className}`}>
+          Espaços Comuns
+        </h2>
+        <p className={`text-lg text-gray-700 mt-4 ${poppins.className}`}>
+          Explore os espaços partilhados da quinta, projetados para momentos de convívio e tranquilidade. Da sala aconchegante à cozinha totalmente equipada, cada ambiente foi criado para que se sinta em casa, rodeado pela beleza da natureza.
+        </p>
+      </div>
+    </FadeInOnScroll>
+
+    <FadeInOnScroll>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        {espacosComuns.map((item, index) => (
+          <Slideshow key={index} title={item.title} desc={item.desc} images={item.images} />
+        ))}
+      </div>
+    </FadeInOnScroll>
+  </div>
+</section>
 
       {/* 🔥 Botão de Reservar */}
       <FadeInOnScroll>
@@ -121,5 +231,66 @@ export default function Quinta() {
       {/* 🔥 Botão flutuante */}
       <FloatingButton />
     </main>
+  );
+}
+
+// **Componente de Slideshow para cada espaço**
+function Slideshow({ title, desc, images }: { title: string; desc: string; images: string[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Alternar imagens automaticamente
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 12000); // Mudar a cada 4 segundos
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  // Mudar imagem manualmente
+  const nextImage = () => setCurrentIndex((prev) => (prev + 1) % images.length);
+  const prevImage = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+
+  return (
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.3 }}
+      className="relative overflow-hidden rounded-lg shadow-lg"
+    >
+      {/* Imagem atual */}
+      <div className="relative w-full h-[250px]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0"
+          >
+            <Image src={images[currentIndex]} alt={title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+    
+      {/* Texto sobre a imagem */}
+      <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)] hover:bg-opacity-50 flex flex-col items-center justify-center transition-all p-4 text-center">
+        <span className="text-white text-xl font-semibold">{title}</span>
+        <span className="text-white text-sm mt-2">{desc}</span>
+      </div>
+
+      {/* Botões de navegação */}
+      {/* {images.length > 1 && (
+        <>
+          <button onClick={prevImage} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white text-2xl">
+            <FaAngleLeft />
+          </button>
+          <button onClick={nextImage} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white text-2xl">
+            <FaAngleRight />
+          </button>
+        </>
+      )} */}
+    </motion.div>
   );
 }
