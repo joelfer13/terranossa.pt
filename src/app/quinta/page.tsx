@@ -7,7 +7,7 @@ import FloatingButton from "@/app/components/FloatingButton";
 import FadeInOnScroll from "@/app/components/FadeInOnScroll";
 import { Poppins } from "next/font/google";
 import Carousel from "@/app/components/Carousel";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+
 
 // Configuração da fonte Poppins
 const poppins = Poppins({
@@ -247,10 +247,10 @@ function Slideshow({ title, desc, images }: { title: string; desc: string; image
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Mudar imagem manualmente
+ /*  // Mudar imagem manualmente
   const nextImage = () => setCurrentIndex((prev) => (prev + 1) % images.length);
   const prevImage = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-
+ */
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
