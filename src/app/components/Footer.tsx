@@ -1,5 +1,5 @@
 import React from "react"; 
-import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaWineGlassAlt} from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,6 +36,10 @@ export default function Footer() {
           <div className="flex items-center">
             <FaEnvelope className="mr-2 text-black-600" />
             <Link href="/contactos" className="text-black-600 hover:underline">Contacte-nos</Link>
+          </div>
+          <div className="flex items-center">
+            <FaWineGlassAlt className="mr-1 text-black-600" />
+            <Link href="Https://www.life-excelsior.com" className="text-black-600 hover:underline">Wine Gourmet</Link>
           </div>
         </div>
       </div>

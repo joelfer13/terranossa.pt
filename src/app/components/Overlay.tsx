@@ -69,9 +69,6 @@ export default function Overlay({ isOpen, onClose }: OverlayProps) {
             <li className="hover:underline cursor-pointer">
               <Link href="/contactos" onClick={onClose} className="text-white hover:underline cursor-pointer font-bold">Contactos</Link>
             </li>
-            <li className="hover:underline cursor-pointer">
-              <Link href="https://www.life-excelsior.com" onClick={onClose} className="text-white hover:underline cursor-pointer font-bold">Wine Gourmet</Link>
-            </li>
             <li>
               <a href="https://otg-portugal.com/reservas" target="_blank" rel="noopener noreferrer" className="hover:underline cursor-pointer text-green-600 font-bold">Reservas</a>
             </li>
