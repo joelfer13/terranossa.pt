@@ -45,7 +45,7 @@ export default function Footer() {
       </div>
 
       {/* 🔥 Barra inferior separada */}
-      <div className="bg-[#647054] text-center text-sm py-4">
+      <div className="bg-[#647054] text-center text-sm py-1">
         <p className="mt-2 text-xs text-gray-700">© 2025 Terra Nossa - Todos os direitos reservados</p>
       </div>
     </footer>
