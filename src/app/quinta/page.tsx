@@ -175,10 +175,10 @@ export default function Quinta() {
     <FadeInOnScroll>
       <div className="text-center">
         <h2 className={`text-4xl font-semibold text-[#4b6449] mb-6 border-b-4 border-[#4b6449] inline-block pb-2 ${poppins.className}`}>
-          Espaços Comuns
+          Espaços Complementares
         </h2>
         <p className={`text-lg text-gray-700 mt-4 ${poppins.className}`}>
-          Explore os espaços partilhados da quinta, projetados para momentos de convívio e tranquilidade. Da sala aconchegante à cozinha totalmente equipada, cada ambiente foi criado para que se sinta em casa, rodeado pela beleza da natureza.
+          Explore os restantes espaços da quinta, projetados para momentos de convívio e tranquilidade. Da sala aconchegante à cozinha totalmente equipada, cada ambiente foi criado para que se sinta em casa, rodeado pela beleza da natureza.
         </p>
       </div>
     </FadeInOnScroll>
