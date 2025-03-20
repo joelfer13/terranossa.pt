@@ -27,7 +27,7 @@ export default function Contactos() {
   }, []);
 
   return (
-    <main className="relative w-full min-h-screen flex flex-col items-center justify-start text-white">
+    <main className="relative w-full min-h-screen flex flex-col items-center justify-start text-white bg-black">
       {/* Hero Section */}
       <FadeInOnScroll>
         <section className="relative w-full min-h-[50vh] bg-transparent flex flex-col relative z-0 items-center justify-center text-center bg-opacity-60">
