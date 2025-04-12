@@ -8,10 +8,21 @@ export default function Footer() {
     <footer className="w-full bg-[#a5a58d] text-gray-900">
       {/* 🔥 Seção superior com logotipos e sombra para separação */}
       <div className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-7 py-2">
-          <Image src="/images/Norte-2020.png" alt="Portugal 2020" width={560} height={60} />
-        </div>
-      </div>
+  <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-7 py-7">
+    <Image
+      src="/images/norte2030.png"
+      alt="Norte 2030"
+      width={220}
+      height={60}
+    />
+    <Image
+      src="/images/pt2030.png"
+      alt="Portugal 2030"
+      width={400}
+      height={60}
+    />
+  </div>
+</div>
 
       {/* 🔥 Conteúdo principal do Footer */}
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-8 pt-10 pb-16">
