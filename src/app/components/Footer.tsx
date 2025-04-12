@@ -28,8 +28,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-8 pt-10 pb-16">
         {/* 🏡 Logo maior à esquerda */}
         <div className="flex justify-center">
+          <Image src="/images/Masterplanet.png" alt="Masterplanet" width={170} height={170} />
+        </div>
+        <div className="flex justify-center">
           <Image src="/images/Logo.jpg" alt="Logo da empresa" width={170} height={170} />
         </div>
+        
 
         {/* 🔽 Barra Separadora */}
         <div className="hidden md:block h-28 w-[2px] bg-gray-700 mx-6"></div>
