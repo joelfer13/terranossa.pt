@@ -12,13 +12,13 @@ export default function Footer() {
     <Image
       src="/images/norte2030.png"
       alt="Norte 2030"
-      width={220}
+      width={160}
       height={60}
     />
     <Image
       src="/images/pt2030.png"
       alt="Portugal 2030"
-      width={400}
+      width={370}
       height={60}
     />
   </div>
